@@ -6,6 +6,7 @@ Event System
 
 ```console
 source .wttd/Scripts/activate
+manage collectstatic            # only when neccessary
 manage runserver
 ```
 
