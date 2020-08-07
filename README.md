@@ -5,8 +5,7 @@ Event System
 ## TL;DR;
 
 ```console
-source .wttd/Scripts/activate
-manage collectstatic                    # only when neccessary
+source .wttd/bin/activate
 pip install -r requirements-dev.txt
 manage runserver
 ```
@@ -23,7 +22,7 @@ manage runserver
 ```console
 git clone git@github.com:rafaelbertelli/eventex.git wttd && cd wttd
 python -m venv .wttd
-source .wttd/Scripts/activate
+source .wttd/bin/activate
 python $VIRTUAL_ENV/../manage.py
 ```
 

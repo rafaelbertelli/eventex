@@ -1,4 +1,4 @@
 {
-  "python.pythonPath": ".wttd\\Scripts\\python.exe",
+  "python.pythonPath": ".wttd/bin/python",
   "python.formatting.provider": "autopep8"
 }
