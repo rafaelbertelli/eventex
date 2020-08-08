@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core import mail
 from eventex.subscriptions.forms import SubscriptionForm
 
 
@@ -37,3 +38,42 @@ class SubscribeTest(TestCase):
         form = self.response.context['form']
         self.assertSequenceEqual(
             ['name', 'cpf', 'email', 'phone'], list(form.fields))
+
+
+class SubscribePostTest(TestCase):
+    def setUp(self):
+        data = dict(name='Rafael Borges', cpf='12365478912',
+                    email='rafaelbertelli89@gmail.com', phone='11-9-4262-0998')
+        self.response = self.client.post('/inscricao/', data)
+
+    def test_post(self):
+        """Valid post should redirect to /inscricao/"""
+        self.assertEqual(self.response.status_code, 302)
+
+    def test_send_subscribe_email(self):
+        self.assertEqual(1, len(mail.outbox))
+
+    def test_subscription_email_subject(self):
+        email = mail.outbox[0]
+        expect = 'Confirmação de inscrição'
+        self.assertEqual(expect, email.subject)
+
+    def test_subscription_email_from(self):
+        email = mail.outbox[0]
+        expect = 'contato@eventex.com.br'
+        self.assertEqual(expect, email.from_email)
+
+    def test_subscription_email_to(self):
+        """Must be a list of recipients"""
+        email = mail.outbox[0]
+        expect = ['recipient@gmail.com', 'rafaelbertelli89@gmail.com']
+        self.assertEqual(expect, email.to)
+        self.assertTrue(isinstance(email.to, list))
+
+    def test_subscription_email_body(self):
+        email = mail.outbox[0]
+
+        self.assertIn('Nome', email.body)
+        self.assertIn('CPF', email.body)
+        self.assertIn('E-mail', email.body)
+        self.assertIn('Telefone', email.body)
