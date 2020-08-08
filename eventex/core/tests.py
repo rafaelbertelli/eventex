@@ -7,7 +7,7 @@ class HomeTest(TestCase):
 
     def test_get(self):
         """GET / must return status code 200"""
-        self.assertTemplateUsed(self.response, 'index.html')
+        self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
         """Must use index.html"""
