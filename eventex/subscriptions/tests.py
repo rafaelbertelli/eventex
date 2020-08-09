@@ -66,7 +66,7 @@ class SubscribePostTest(TestCase):
     def test_subscription_email_to(self):
         """Must be a list of recipients"""
         email = mail.outbox[0]
-        expect = ['recipient@gmail.com', 'rafaelbertelli89@gmail.com']
+        expect = ['rafaelbertelli89@gmail.com']
         self.assertEqual(expect, email.to)
         self.assertTrue(isinstance(email.to, list))
 
@@ -77,3 +77,33 @@ class SubscribePostTest(TestCase):
         self.assertIn('CPF', email.body)
         self.assertIn('E-mail', email.body)
         self.assertIn('Telefone', email.body)
+
+
+class SubscribeInvalidPost(TestCase):
+    def setUp(self):
+        self.response = self.client.post('/inscricao/', {})
+
+    def test_post(self):
+        """Invalid POST should not redirect"""
+        self.assertEqual(200, self.response.status_code)
+
+    def test_template(self):
+        self.assertTemplateUsed(
+            self.response, 'subscriptions/subscription_form.html')
+
+    def test_has_form(self):
+        form = self.response.context['form']
+        self.assertIsInstance(form, SubscriptionForm)
+
+    def test_form_has_errors(self):
+        form = self.response.context['form']
+        self.assertTrue(form.errors)
+
+
+class SubscribeSuccessMessage(TestCase):
+    def test_message(self):
+        data = dict(name='Rafael Borges', cpf='12365478912',
+                    email='rafaelbertelli89@gmail.com', phone='11-9-4262-0998')
+        response = self.client.post('/inscricao/', data, follow=True)
+
+        self.assertContains(response, 'Inscrição realizada com sucesso!')
