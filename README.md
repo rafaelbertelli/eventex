@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/rafaelbertelli/eventex.svg?branch=master)](https://travis-ci.com/rafaelbertelli/eventex)
 [![codebeat badge](https://codebeat.co/badges/0a3f3562-662c-46e9-a5d6-619c9a8dfba1)](https://codebeat.co/projects/github-com-rafaelbertelli-eventex-master)
 [![CodeFactor](https://www.codefactor.io/repository/github/rafaelbertelli/eventex/badge)](https://www.codefactor.io/repository/github/rafaelbertelli/eventex)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/173142c8df9840d287740f73518bd749)](https://app.codacy.com/manual/rafaelbertelli/eventex?utm_source=github.com&utm_medium=referral&utm_content=rafaelbertelli/eventex&utm_campaign=Badge_Grade_Settings)
 
 Event System
 
