@@ -5,8 +5,8 @@ Event System
 ## TL;DR;
 
 ```console
-source .wttd/bin/activate
 pip install -r requirements-dev.txt
+source .wttd/bin/activate
 manage runserver
 ```
 
@@ -17,13 +17,16 @@ manage runserver
 3. Activate virtualenv;
 4. Install the dependencies;
 5. Configure .env;
-6. Run server; <small>**It's recommended to create an alias for this command</small>
+6. Run tests;
+7. Run server;
 
 ```console
 git clone git@github.com:rafaelbertelli/eventex.git wttd && cd wttd
 python -m venv .wttd
 source .wttd/bin/activate
 python $VIRTUAL_ENV/../manage.py
+pip install -r requirements-dev.txt
+cp contrib/env-sample .env
 ```
 
 ## How to deploy?
