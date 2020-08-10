@@ -1,5 +1,9 @@
 # Eventex
 
+[![Build Status](https://travis-ci.com/rafaelbertelli/eventex.svg?branch=master)](https://travis-ci.com/rafaelbertelli/eventex)
+[![codebeat badge](https://codebeat.co/badges/0a3f3562-662c-46e9-a5d6-619c9a8dfba1)](https://codebeat.co/projects/github-com-rafaelbertelli-eventex-master)
+[![CodeFactor](https://www.codefactor.io/repository/github/rafaelbertelli/eventex/badge)](https://www.codefactor.io/repository/github/rafaelbertelli/eventex)
+
 Event System
 
 ## TL;DR;
