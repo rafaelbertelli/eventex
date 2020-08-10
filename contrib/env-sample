@@ -1,6 +1,6 @@
 DEBUG=False
 SECRET_KEY=password
-ALLOWED_HOST=127.0.0.1, .localhost
+ALLOWED_HOST=127.0.0.1, .localhost, .herokuapp.com
 EMAIL_PORT=25
 EMAIL_TLS=False
 EMAIL_HOST=localhost
