@@ -1,5 +1,7 @@
 # Eventex
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/173142c8df9840d287740f73518bd749)](https://app.codacy.com/manual/rafaelbertelli/eventex?utm_source=github.com&utm_medium=referral&utm_content=rafaelbertelli/eventex&utm_campaign=Badge_Grade_Settings)
+
 Event System
 
 ## TL;DR;
