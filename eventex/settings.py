@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'test_without_migrations',
     'django_extensions',
     'eventex.core',
     'eventex.subscriptions',
@@ -101,7 +102,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Email configuration
 
-DEFAULT_FROM_EMAIL = 'contato@eventex.com.br'
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)

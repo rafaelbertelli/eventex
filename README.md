@@ -7,12 +7,13 @@
 
 Event System
 
-## TL;DR;
+## TL;DR
 
 ```console
 pip install -r requirements-dev.txt
 source .wttd/bin/activate
-manage runserver
+python manage.py collectstatic
+python manage.py runserver
 ```
 
 ## How to develop?
@@ -32,6 +33,9 @@ source .wttd/bin/activate
 python $VIRTUAL_ENV/../manage.py
 pip install -r requirements-dev.txt
 cp contrib/env-sample .env
+python manage.py test
+python manage.py collectstatic
+python manage.py runserver
 ```
 
 ## How to deploy?

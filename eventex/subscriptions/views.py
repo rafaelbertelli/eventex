@@ -1,11 +1,12 @@
-from django.core import mail
 from django.conf import settings
 from django.contrib import messages
+from django.core import mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.http import HttpResponseRedirect
 
 from eventex.subscriptions.forms import SubscriptionForm
+from eventex.subscriptions.models import Subscription
 
 
 def subscribe(request):
@@ -34,6 +35,7 @@ def create(request):
     recipient = [context['email']]
 
     _send_email(template_name, subject, sender, context, recipient)
+    Subscription.objects.create(**form.cleaned_data)
     messages.success(request, 'Inscrição realizada com sucesso!')
 
     return HttpResponseRedirect('/inscricao/')
