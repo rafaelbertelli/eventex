@@ -28,7 +28,7 @@ def create(request):
         context = {'form': form}
         return render(request, 'subscriptions/subscription_form.html', context)
 
-    subscription = Subscription.objects.create(**form.cleaned_data)
+    subscription = form.save()
 
     template_name = 'subscriptions/subscription_email.txt'
     subject = 'Confirmação de inscrição'

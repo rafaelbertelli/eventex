@@ -25,7 +25,7 @@ class SubscribeFormTest(TestCase):
 
     def test_cpf_is_digit(self):
         """CPF only accept digits"""
-        form = self.make_validated_form(cpf='ABCD12312312')
+        form = self.make_validated_form(cpf='ABCD1231231')
         self.assert_form_error_code(form, 'cpf', 'digits')
 
     def test_cpf_has_11_digits(self):
